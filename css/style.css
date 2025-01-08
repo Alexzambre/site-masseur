@@ -1,44 +1,42 @@
+/* Applique la police Lora au corps du texte */
 body {
+  font-family: 'Lora', serif;
+  background-color: #f8f8f8; /* Couleur de fond douce */
+  color: #333; /* Texte lisible */
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
 }
 
-header, footer {
-  background-color: #f5f5f5;
-  padding: 1em;
-  text-align: center;
+/* Personnalisation des titres */
+h1, h2 {
+  font-family: 'Lora', serif; /* Police principale pour les titres */
+  color: #6abf69; /* Couleur apaisante pour les titres */
+  margin-bottom: 0.5em;
 }
 
+/* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
-  gap: 1em;
   background-color: #333;
-  margin: 0;
 }
 
 nav ul li {
-  display: inline;
+  margin: 0 1em;
 }
 
 nav ul li a {
+  font-family: 'Lora', serif; /* Appliquer la même police au menu */
   text-decoration: none;
   color: white;
   padding: 0.5em 1em;
-  background-color: #444;
   border-radius: 5px;
+  background-color: #6abf69;
 }
 
 nav ul li a:hover {
-  background-color: #555;
-}
-
-main {
-  padding: 1em;
-}
-
-h1, h2 {
-  margin: 0.5em 0;
+  background-color: #5aa659;
 }
