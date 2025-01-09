@@ -51,6 +51,27 @@ nav ul li a:hover {
   background-color: #5aa659;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form select, form input, form button {
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+#confirmation {
+  margin-top: 1em;
+  font-weight: bold;
+}
 
 main {
   padding: 1em;
