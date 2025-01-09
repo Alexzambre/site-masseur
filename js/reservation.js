@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><strong>Durée :</strong> ${formData.duration} minutes</li>
             <li><strong>Date :</strong> ${formData.date}</li>
             <li><strong>Heure :</strong> ${formData.timeslot}</li>
-            <li><strong>Lieu :</strong> ${formData.location === "domicile_client" ? "À votre domicile" : "Dans notre salle dédiée"}</li>
+            <li><strong>Lieu :</strong> ${formData.location}</li>
             <li><strong>Nom :</strong> ${formData.name}</li>
             <li><strong>Téléphone :</strong> ${formData.phone}</li>
           </ul>
