@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Détermine la profondeur de la page en comptant les "/"
-  const pathDepth = window.location.pathname.split('/').length - 1;
+  // Calculer la profondeur à partir de la racine
+  const pathDepth = window.location.pathname.split('/').length - 2; // Ajustement ici
+  const prefix = pathDepth > 0 ? '../'.repeat(pathDepth) : './'; // Remonter à la racine
 
-  // Calcule le préfixe pour remonter correctement dans l'arborescence
-  const prefix = '../'.repeat(pathDepth - 1);
-
-  // Génère le menu avec les chemins dynamiques
+  // Générer le menu HTML
   const menuHTML = `
     <nav>
       <ul>
@@ -16,6 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     </nav>
   `;
 
-  // Injecte le menu dans l'élément <div id="menu">
+  // Injecter le menu dans le conteneur
   document.getElementById("menu").innerHTML = menuHTML;
 });
