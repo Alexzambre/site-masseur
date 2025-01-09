@@ -16,6 +16,19 @@
       <h2>R&eacute;servez votre massage</h2>
       <p>Choisissez votre massage et r&eacute;servez un cr&eacute;neau horaire.</p>
       <form id="booking-form">
+        <label for="name">Pr&eacute;nom et Nom :</label>
+        <input type="text" id="name" placeholder="Pr&eacute;nom Nom" required>
+
+        <label for="phone">Numéro de t&eacute;l&eacute;phone :</label>
+        <input type="tel" id="phone" placeholder="06 12 34 56 78" pattern="[0-9]{10}" required>
+
+        <label for="location">Lieu du soin :</label>
+        <select id="location" required>
+          <option value="" disabled selected>-- S&eacute;lectionnez un lieu --</option>
+          <option value="domicile_client">Soin à votre domicile</option>
+          <option value="salle_dediee">Soin dans notre salle dédiée</option>
+        </select>
+
         <label for="massage">Choisissez une prestation :</label>
         <select id="massage" required>
           <option value="" disabled selected>-- Choisissez une prestation --</option>
@@ -37,7 +50,7 @@
 
         <label for="timeslot">Choisissez un cr&eacute;neau horaire :</label>
         <select id="timeslot" required>
-          <option value="" disabled selected>-- Sélectionnez un cr&eacute;neau --</option>
+          <option value="" disabled selected>-- S&eacute;lectionnez un cr&eacute;neau --</option>
           <optgroup label="Matin">
             <option value="10:00">10:00</option>
             <option value="10:30">10:30</option>
@@ -46,7 +59,7 @@
             <option value="12:00">12:00</option>
             <option value="12:30">12:30</option>
           </optgroup>
-          <optgroup label="Apr&eacute;s-midi">
+          <optgroup label="Après-midi">
             <option value="15:00">15:00</option>
             <option value="15:30">15:30</option>
             <option value="16:00">16:00</option>
@@ -66,7 +79,6 @@
         <button type="submit">R&eacute;server</button>
       </form>
       <div id="confirmation"></div>
-    </section>
   </main>
   <footer>
     <p>&copy; 2025 - Mon activit&eacute; de massage</p>
