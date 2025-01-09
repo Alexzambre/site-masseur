@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Calculer la profondeur à partir de la racine
-  const pathDepth = window.location.pathname.split('/').length - 2; // Ajustement ici
-  const prefix = pathDepth > 0 ? '../'.repeat(pathDepth) : './'; // Remonter à la racine
+  // Récupère le chemin actuel
+  const currentPath = window.location.pathname;
 
-  // Générer le menu HTML
+  // Détermine les préfixes en fonction de la page actuelle
+  let prefix = './'; // Par défaut, pour la page d'accueil
+  if (currentPath.includes('/pages/')) {
+    prefix = '../'; // Pour les pages dans le dossier "pages"
+  }
+
+  // Génère le menu avec les chemins adaptés
   const menuHTML = `
     <nav>
       <ul>
@@ -14,6 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     </nav>
   `;
 
-  // Injecter le menu dans le conteneur
+  // Injecte le menu dans le conteneur
   document.getElementById("menu").innerHTML = menuHTML;
 });
