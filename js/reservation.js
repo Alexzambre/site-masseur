@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmation.innerHTML = `<p class="error-message">Veuillez remplir tous les champs.</p>`;
       return;
     }
-
+    
+    // Affichez les données dans la console pour vérifier
+    console.log("Données récupérées :", formData);
+    
     // Afficher un message pendant l'envoi
     confirmation.innerHTML = `<p>Envoi en cours...</p>`;
 
