@@ -11,20 +11,23 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: document.getElementById("duration").value,
       date: document.getElementById("date").value,
       timeslot: document.getElementById("timeslot").value,
+      location: document.getElementById("location").value,
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
     };
 
     // Texte lisible pour la prestation sélectionnée
     const massageText = form.querySelector(`#massage option[value="${formData.massage}"]`).textContent;
-    
+
     // Vérification des champs
-    if (!formData.massage || !formData.duration || !formData.date || !formData.timeslot) {
+    if (!formData.massage || !formData.duration || !formData.date || !formData.timeslot || !formData.location || !formData.name || !formData.phone) {
       confirmation.innerHTML = `<p class="error-message">Veuillez remplir tous les champs.</p>`;
       return;
     }
 
     // Afficher un message pendant l'envoi
     confirmation.innerHTML = `<p>Envoi en cours...</p>`;
-    
+
     // Envoi des données via EmailJS
     emailjs
       .send("service_fjzjevg", "template_k993hpd", formData) // Remplacez avec vos IDs EmailJS
@@ -37,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><strong>Durée :</strong> ${formData.duration} minutes</li>
             <li><strong>Date :</strong> ${formData.date}</li>
             <li><strong>Heure :</strong> ${formData.timeslot}</li>
+            <li><strong>Lieu :</strong> ${formData.location === "domicile_client" ? "À votre domicile" : "Dans notre salle dédiée"}</li>
+            <li><strong>Nom :</strong> ${formData.name}</li>
+            <li><strong>Téléphone :</strong> ${formData.phone}</li>
           </ul>
         `;
       })
