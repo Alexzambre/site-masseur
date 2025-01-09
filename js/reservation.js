@@ -15,7 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Texte lisible pour la prestation sélectionnée
     const massageText = form.querySelector(`#massage option[value="${formData.massage}"]`).textContent;
+    
+    // Vérification des champs
+    if (!formData.massage || !formData.duration || !formData.date || !formData.timeslot) {
+      confirmation.innerHTML = `<p class="error-message">Veuillez remplir tous les champs.</p>`;
+      return;
+    }
 
+    // Afficher un message pendant l'envoi
+    confirmation.innerHTML = `<p>Envoi en cours...</p>`;
+    
     // Envoi des données via EmailJS
     emailjs
       .send("service_fjzjevg", "template_k993hpd", formData) // Remplacez avec vos IDs EmailJS
