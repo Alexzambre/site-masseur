@@ -15,31 +15,54 @@
     <section>
       <h2>R&eacute;servez votre massage</h2>
       <p>Choisissez votre massage et r&eacute;servez un cr&eacute;neau horaire.</p>
+      <form id="booking-form">
+      <label for="massage">Choisissez une prestation :</label>
       <select id="massage" required>
-          <option value="1">1. Massage Relaxant</option>
-          <option value="2">2. Massage Tonique</option>
-          <option value="3">3. Massage Profond</option>
-          <option value="4">4. Massage du Visage</option>
-          <option value="5">5. Massage des Membres Inf&eacute;rieurs</option>
-          <option value="6">6. Massage des Membres Sup&eacute;rieurs</option>
-          <option value="7">7. Massage Cr&acirc;nien</option>
-        </select>
+        <option value="1">1. Massage Relaxant</option>
+        <option value="2">2. Massage Tonique</option>
+        <option value="3">3. Massage Profond</option>
+        <option value="4">4. Massage du Visage</option>
+        <option value="5">5. Massage des Membres Inf&eacute;rieurs</option>
+        <option value="6">6. Massage des Membres Sup&eacute;rieurs</option>
+        <option value="7">7. Massage Cr&acirc;nien</option>
+      </select>
 
-        <label for="duration">Dur&eacute;e :</label>
-        <select id="duration" required>
-          <option value="30">30 minutes</option>
-          <option value="60">60 minutes</option>
-        </select>
+      <label for="duration">Dur&eacute;e :</label>
+      <select id="duration" required>
+        <option value="30">30 minutes</option>
+        <option value="60">60 minutes</option>
+      </select>
 
-        <label for="date">Date :</label>
-        <input type="date" id="date" required>
+      <label for="timeslot">Choisissez un créneau horaire :</label>
+      <select id="timeslot" required>
+        <optgroup label="Matin">
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+        </optgroup>
+        <optgroup label="Après-midi">
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+        </optgroup>
+      </select>
 
-        <label for="time">Heure :</label>
-        <input type="time" id="time" required>
+      <label for="date">Date :</label>
+      <input type="date" id="date" required>
 
-        <button type="submit">R&eacute;server</button>
-      </form>
-      <div id="confirmation"></div>
+      <button type="submit">Réserver</button>
+    </form>
+    <div id="confirmation"></div>
     </section>
   </main>
   <footer>
@@ -47,9 +70,6 @@
   </footer>
   <script src="../js/menu.js"></script> <!-- Chemin relatif vers menu.js -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  emailjs.init("template_k993hpd"); // Remplacez YOUR_USER_ID par votre ID utilisateur EmailJS
-</script>
-
+  <script src="../js/reservation.js"></script> <!-- Script pour gérer la réservation --></script>
 </body>
 </html>
