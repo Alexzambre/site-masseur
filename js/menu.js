@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuHTML = `
     <nav>
       <ul>
-        <li><a href="${prefix}index.html">Accueil</a></li>
-        <li><a href="${prefix}pages/prestations.html">Prestations</a></li>
-        <li><a href="${prefix}pages/reservation.html">Réservations</a></li>
+        <li><a href="/site-masseur/index.html">Accueil</a></li>
+        <li><a href="/site-masseur/pages/prestations.html">Prestations</a></li>
+        <li><a href="/site-masseur/pages/reservation.html">Réservations</a></li>
       </ul>
     </nav>
   `;
