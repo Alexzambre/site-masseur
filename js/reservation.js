@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("booking-form");
+  const confirmation = document.getElementById("confirmation");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Empêche la soumission classique du formulaire
@@ -12,15 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
       time: document.getElementById("time").value,
     };
 
-    // Envoi des données via EmailJS
-    emailjs
-      .send("service_fjzjevg", "template_k993hpd", formData)
-      .then(() => {
-        alert("Votre réservation a été envoyée avec succès !");
-      })
-      .catch((error) => {
-        console.error("Erreur EmailJS :", error);
-        alert("Une erreur s'est produite. Veuillez réessayer.");
-      });
+    // Texte lisible pour la prestation sélectionnée
+    const massageText = form.querySelector(`#massage option[value="${formData.massage}"]`).textContent;
+
+    // Génération du message de confirmation avec <strong>
+    confirmation.innerHTML = `
+      <p>Votre réservation a été enregistrée avec succès :</p>
+      <ul>
+        <li><strong>Prestation :</strong> ${massageText}</li>
+        <li><strong>Durée :</strong> ${formData.duration} minutes</li>
+        <li><strong>Date :</strong> ${formData.date}</li>
+        <li><strong>Heure :</strong> ${formData.time}</li>
+      </ul>
+    `;
+    confirmation.style.color = "green";
   });
 });
