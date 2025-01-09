@@ -10,22 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
       massage: document.getElementById("massage").value,
       duration: document.getElementById("duration").value,
       date: document.getElementById("date").value,
-      time: document.getElementById("time").value,
+      timeslot: document.getElementById("timeslot").value,
     };
 
     // Texte lisible pour la prestation sélectionnée
     const massageText = form.querySelector(`#massage option[value="${formData.massage}"]`).textContent;
 
-    // Génération du message de confirmation avec <strong>
-    confirmation.innerHTML = `
-      <p>Votre réservation a été enregistrée avec succès :</p>
-      <ul>
-        <li><strong>Prestation :</strong> ${massageText}</li>
-        <li><strong>Durée :</strong> ${formData.duration} minutes</li>
-        <li><strong>Date :</strong> ${formData.date}</li>
-        <li><strong>Heure :</strong> ${formData.time}</li>
-      </ul>
-    `;
-    confirmation.style.color = "green";
+    // Envoi des données via EmailJS
+    emailjs
+      .send("service_fjzjevg", "template_k993hpd", formData) // Remplacez avec vos IDs EmailJS
+      .then(() => {
+        // Génération du message de confirmation avec <strong>
+        confirmation.innerHTML = `
+          <p style="color: green;">Votre réservation a été enregistrée avec succès :</p>
+          <ul>
+            <li><strong>Prestation :</strong> ${massageText}</li>
+            <li><strong>Durée :</strong> ${formData.duration} minutes</li>
+            <li><strong>Date :</strong> ${formData.date}</li>
+            <li><strong>Heure :</strong> ${formData.timeslot}</li>
+          </ul>
+        `;
+      })
+      .catch((error) => {
+        confirmation.innerHTML = `<p style="color: red;">Une erreur s'est produite. Veuillez réessayer.</p>`;
+        console.error("Erreur EmailJS :", error);
+      });
   });
 });
