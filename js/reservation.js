@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Génération du message de confirmation avec <strong>
         confirmation.innerHTML = `
           <p style="color: green;">Votre r&eacute;servation a &eacute;t&eacute; enregistr&eacute;e avec succ&eacute;s !</p>
+          <p>Bonne journée</p>
           <ul>
             <li><strong>Prestation :</strong> ${massageText}</li>
             <li><strong>Dur&eacute;e :</strong> ${formData.duration} minutes</li>
